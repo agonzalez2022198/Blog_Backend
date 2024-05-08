@@ -10,7 +10,7 @@ const router = Router();
 router.get("/", getBlogs);
 
 router.post(
-    "/",
+    "/blog",
     [
       check("title", "El title es obligatorio").not().isEmpty(),
       check("author", "El author es obligatorio").not().isEmpty(),

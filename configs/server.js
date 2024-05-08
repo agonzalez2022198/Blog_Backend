@@ -5,8 +5,9 @@ import http from 'http';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import {dbConnection} from "./mongo.js"
 
-class ExpressServer {
+class Server {
     constructor(){
         this.app = express();
         this.port = process.env.PORT;
@@ -27,7 +28,7 @@ class ExpressServer {
         this.app.use(express.json());
         this.app.use(helmet());
         this.app.use(morgan('dev'));
-        this.app.use(apiLimiter);
+        //this.app.use(apiLimiter);
     }
 
     routes(){
@@ -40,3 +41,6 @@ class ExpressServer {
         });
     }
 }
+
+
+export default Server;

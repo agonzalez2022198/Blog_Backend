@@ -6,11 +6,31 @@
     "express": "^4.19.2",
     "express-joi-validation": "^5.0.1",
     "express-rate-limit": "^7.2.0",
+    "express-server": "^0.7.0",
     "express-validator": "^7.0.1",
     "helmet": "^7.1.0",
     "joi": "^17.13.1",
     "mongodb": "^6.6.1",
     "mongoose": "^8.3.4",
+    "morgan": "^1.10.0",
     "vercel": "^34.1.9"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "ESModule"
+  ],
+  "name": "blog_backend",
+  "description": "Repository about my blog from projects, this is the backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module"
 }
