@@ -20,4 +20,13 @@ export const getBlogs = async (res, req) => {
 
 export const postBlog = async (res, req) => {
     
+    const {title, author, content, image, comments } = req.body
+    const blog = new Blog ({title, author, content, image, comments})
+
+    await blog.save()
+
+    res.status(200).json({
+        blog
+    });
+
 }
