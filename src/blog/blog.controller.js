@@ -1,7 +1,9 @@
 import axios from "axios"
-import Blog from "./blog.model"
+import Blog from "./blog.model.js"
+import { response, request } from "express";
+import mongoose from 'mongoose';
 
-export const getBlogs = async (res, req) => {
+export const getBlogs = async (res = response, req = request) => {
     const {start, end} = req.query
     const query = {state: true}
 
@@ -18,10 +20,16 @@ export const getBlogs = async (res, req) => {
 }
 
 
-export const postBlog = async (res, req) => {
-    
-    const {title, author, content, image, comments } = req.body
-    const blog = new Blog ({title, author, content, image, comments})
+export const postBlog = async (req, res) => {
+
+    if(!req.body){
+        return res.status(400).json({error: "Esta vacío..."})
+    }
+
+    //const ObjectId = mongoose.Types.ObjectId;
+    const {title, author, content, image } = req.body;
+    //const commentsIds = comments.map(comment => new ObjectId(comment));
+    const blog = new Blog ({title, author, content, image})
 
     await blog.save()
 

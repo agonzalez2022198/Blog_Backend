@@ -6,12 +6,14 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import {dbConnection} from "./mongo.js"
+import blogRoutes from "../src/blog/blog.routes.js"
 
 class Server {
     constructor(){
         this.app = express();
         this.port = process.env.PORT;
         this.server = http.createServer(this.app);
+        this.blogPath = '/blog/blog'
 
         this.middlewares();
         this.conectarDB();
@@ -32,7 +34,7 @@ class Server {
     }
 
     routes(){
-        
+        this.app.use(this.blogPath, blogRoutes);
     }
 
     listen(){
