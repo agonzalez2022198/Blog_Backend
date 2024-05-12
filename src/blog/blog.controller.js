@@ -3,7 +3,7 @@ import Blog from "./blog.model.js"
 import { response, request } from "express";
 import mongoose from 'mongoose';
 
-export const getBlogs = async (res = response, req = request) => {
+export const getBlogs = async (req , res) => {
     const {start, end} = req.query
     const query = {state: true}
 

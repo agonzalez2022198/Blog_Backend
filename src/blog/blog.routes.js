@@ -7,7 +7,7 @@ import {
 
 const router = Router();
 
-router.get("/", getBlogs);
+router.get("/blogs", getBlogs);
 
 router.post(
     "/",
