@@ -7,6 +7,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import {dbConnection} from "./mongo.js"
 import blogRoutes from "../src/blog/blog.routes.js"
+import commentRoutes from "../src/comments/comment.routes.js";
 
 class Server {
     constructor(){
@@ -14,6 +15,7 @@ class Server {
         this.port = process.env.PORT;
         this.server = http.createServer(this.app);
         this.blogPath = '/blog/blog'
+        this.commentPath = '/blog/blog/comment'
 
         this.middlewares();
         this.conectarDB();
@@ -35,6 +37,7 @@ class Server {
 
     routes(){
         this.app.use(this.blogPath, blogRoutes);
+        this.app.use(this.commentPath, commentRoutes);
     }
 
     listen(){
