@@ -20,6 +20,16 @@ export const getBlogs = async (req , res) => {
 }
 
 
+export const getBlogByID = async (req, res) => {
+    const {id} = req.params;
+    const blog = await Blog.findOne({_id: id});
+    
+    res.status(200).json({
+        blog
+    })
+}
+
+
 export const postBlog = async (req, res) => {
 
     if(!req.body){
