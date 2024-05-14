@@ -5,7 +5,7 @@ import {
     getBlogs, postBlog, getBlogByID
 } from "./blog.controller.js";
 
-import existeBlogByID from "../helpers/db-validator.js"
+//import existeBlogByID from "../helpers/db-validator.js"
 
 const router = Router();
 
@@ -24,14 +24,14 @@ router.post(
 );
 
 
-router.get(
+/*router.get(
   "/:id",
   [
     check("id", "No es un ID válido").isMongoId(),
     check("id").custom(existeBlogByID),
   ],
   getUsuarioById
-);
+);*/
 
 
 export default router;
